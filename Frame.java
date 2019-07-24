@@ -67,15 +67,26 @@ public class Frame
 	public String toString()
 	{
 		if(lastFrame)
-			return String.valueOf((throw1+throw2+bonus1+bonus2));
+			if(throw1==10)
+				if(bonus1==10)
+					if(bonus2==10)
+						return "X X X";
+					else
+						return "X X " + bonus2;
+				else
+					return "X " + bonus1 + " " + bonus2;
+			else if((throw1+throw2)==10)
+				return throw1 + " / " + bonus1;
+			else
+				return throw1 + " " + throw2;
 		else
 		{
 			if(throw1==10)
 				return "X";
 			else if((throw1+throw2)==10)
-				return "/";
+				return throw1 + " /";
 			else
-				return String.valueOf((throw1+throw2));
+				return throw1 + " " + throw2;
 		}
 	}
 }
