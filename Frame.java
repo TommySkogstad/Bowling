@@ -23,4 +23,14 @@ public class Frame
 	{
 		return throw2;
 	}
+
+	public String toString()
+	{
+		if(throw1==10)
+			return "X";
+		else if((throw1+throw2)==10)
+			return "/";
+		else
+			return String.valueOf((throw1+throw2));
+	}
 }
