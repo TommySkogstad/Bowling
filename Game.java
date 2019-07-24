@@ -1,4 +1,4 @@
-public class Game extends Frame
+public class Game
 {
 	public Frame frame1;
 	public Frame frame2;
@@ -13,16 +13,16 @@ public class Game extends Frame
 
 	public Game()
 	{
-		frame1 = new Frame();
-		frame2 = new Frame();
-		frame3 = new Frame();
-		frame4 = new Frame();
-		frame5 = new Frame();
-		frame6 = new Frame();
-		frame7 = new Frame();
-		frame8 = new Frame();
-		frame9 = new Frame();
-		frame10 = new Frame(); //TODO: add bonusthrows
+		frame1 = new Frame(false);
+		frame2 = new Frame(false);
+		frame3 = new Frame(false);
+		frame4 = new Frame(false);
+		frame5 = new Frame(false);
+		frame6 = new Frame(false);
+		frame7 = new Frame(false);
+		frame8 = new Frame(false);
+		frame9 = new Frame(false);
+		frame10 = new Frame(true);
 	}
 
 	public String toString()
