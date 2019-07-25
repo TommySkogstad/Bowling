@@ -6,6 +6,7 @@ public class Bowling
 	{
 		Game myGame = new Game();
 		System.out.println(myGame);
+		System.out.println(myGame.gameScore());
 	}
 
 }

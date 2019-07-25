@@ -75,6 +75,11 @@ public class Frame
 		return next;
 	}
 
+	public boolean isLast()
+	{
+		return lastFrame;
+	}
+
 	public String toString()
 	{
 		if(lastFrame)

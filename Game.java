@@ -34,26 +34,52 @@ public class Game
 		frame9.setNext(frame10);
 	}
 
-	private int score(Frame f)
+	private int frameScore(Frame f)
 	{
 		int points=0;
-		if(f.getThrow1()==10)
-			if(f.getNext().getThrow1()==10)
-				points+=f.getThrow1()+f.getNext().getThrow1()+f.getNext().getNext().getThrow1();
+		boolean last=f.isLast();
+		boolean secondLast=false;
+		if(!last)
+			secondLast=f.getNext().isLast();
+		if(f.getThrow1()==10)//is this a strike?
+			if(last)//is it last frame?
+				points+=10+f.getBonus1()+f.getBonus2();
+			else if(f.getNext().getThrow1()==10)//is next frame a strike?
+				if(secondLast)//is it second to last frame?
+					points+=20+f.getNext().getBonus1();
+				else
+					points+=20+f.getNext().getNext().getThrow1();
 			else
-				points+=f.getThrow1()+f.getNext().getThrow1()+f.getNext().getThrow2();
-		else if((f.getThrow1()+f.getThrow2())==10)
-			points+=f.getThrow1()+f.getThrow2()+f.getNext().getThrow1();
+				points+=10+f.getNext().getThrow1()+f.getNext().getThrow2();
+		else if((f.getThrow1()+f.getThrow2())==10)//is this a spare?
+			if(last)//is it last frame?
+				points+=10+f.getBonus1();
+			else
+				points+=10+f.getNext().getThrow1();
 		else
 			points+=f.getThrow1()+f.getThrow2();
 		return points;
 	}
 
+	public int gameScore()
+	{
+		int points=0;
+		points+=frameScore(frame1);
+		points+=frameScore(frame2);
+		points+=frameScore(frame3);
+		points+=frameScore(frame4);
+		points+=frameScore(frame5);
+		points+=frameScore(frame6);
+		points+=frameScore(frame7);
+		points+=frameScore(frame8);
+		points+=frameScore(frame9);
+		points+=frameScore(frame10);
+		return points;
+	}
+
 	public String toString()
 	{
-		return frame1 + " | " + frame2 + " | " + frame3 + " | " +
-			frame4 + " | " + frame5 + " | " + frame6 + " | " +
-			frame7 + " | " + frame8 + " | " + frame9 + " | " +
-			frame10 + " \n Score:" + score(frame1) + " | " + (score(frame1)+score(frame2));
+		return "Frames: " + frame1 + " | " + frame2 + " | " + frame3 + " | " + frame4 + " | " + frame5 + " | " +
+			frame6 + " | " + frame7 + " | " + frame8 + " | " + frame9 + " | " + frame10;
 	}
 }
