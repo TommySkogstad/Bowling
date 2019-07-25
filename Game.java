@@ -25,11 +25,26 @@ public class Game
 		frame10 = new Frame(true);
 	}
 
+	private int score()
+	{
+		int points=0;
+		if(frame1.getThrow1()==10)
+			if(frame2.getThrow1()==10)
+				points+=frame1.getThrow1()+frame2.getThrow1()+frame3.getThrow1();
+			else
+				points+=frame1.getThrow1()+frame2.getThrow1()+frame2.getThrow2();
+		else if((frame1.getThrow1()+frame1.getThrow2())==10)
+			points+=frame1.getThrow1()+frame1.getThrow2()+frame2.getThrow1();
+		else
+			points+=frame1.getThrow1()+frame1.getThrow2();
+		return points;
+	}
+
 	public String toString()
 	{
 		return frame1 + " | " + frame2 + " | " + frame3 + " | " +
 			frame4 + " | " + frame5 + " | " + frame6 + " | " +
 			frame7 + " | " + frame8 + " | " + frame9 + " | " +
-			frame10;
+			frame10 + " | Score:" + score();
 	}
 }
