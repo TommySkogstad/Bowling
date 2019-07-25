@@ -5,6 +5,7 @@ public class Frame
 	private boolean lastFrame;
 	private int bonus1;
 	private int bonus2;
+	private Frame next;
 
 	public Frame(boolean x)
 	{
@@ -44,6 +45,11 @@ public class Frame
 		return (int)(Math.random()*(n+1));
 	}
 
+	public void setNext(Frame f)
+	{
+		next=f;
+	}
+
 	public int getThrow1()
 	{
 		return throw1;
@@ -63,6 +69,11 @@ public class Frame
         {
                 return bonus2;
         }
+
+	public Frame getNext()
+	{
+		return next;
+	}
 
 	public String toString()
 	{
