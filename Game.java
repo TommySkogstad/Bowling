@@ -37,22 +37,18 @@ public class Game
 	private int frameScore(Frame f)
 	{
 		int points=0;
-		boolean last=f.isLast();
-		boolean secondLast=false;
-		if(!last)
-			secondLast=f.getNext().isLast();
 		if(f.getThrow1()==10)//is this a strike?
-			if(last)//is it last frame?
+			if(f.isLast())//is it last frame?
 				points+=10+f.getBonus1()+f.getBonus2();
 			else if(f.getNext().getThrow1()==10)//is next frame a strike?
-				if(secondLast)//is it second to last frame?
+				if(f.getNext().isLast())//is it second to last frame?
 					points+=20+f.getNext().getBonus1();
 				else
 					points+=20+f.getNext().getNext().getThrow1();
 			else
 				points+=10+f.getNext().getThrow1()+f.getNext().getThrow2();
 		else if((f.getThrow1()+f.getThrow2())==10)//is this a spare?
-			if(last)//is it last frame?
+			if(f.isLast())//is it last frame?
 				points+=10+f.getBonus1();
 			else
 				points+=10+f.getNext().getThrow1();
@@ -64,16 +60,13 @@ public class Game
 	public int gameScore()
 	{
 		int points=0;
-		points+=frameScore(frame1);
-		points+=frameScore(frame2);
-		points+=frameScore(frame3);
-		points+=frameScore(frame4);
-		points+=frameScore(frame5);
-		points+=frameScore(frame6);
-		points+=frameScore(frame7);
-		points+=frameScore(frame8);
-		points+=frameScore(frame9);
-		points+=frameScore(frame10);
+		Frame f = frame1;
+		while(!f.isLast())
+		{
+			points+=frameScore(f);
+			f=f.getNext();
+		}
+		points+=frameScore(f);
 		return points;
 	}
 
