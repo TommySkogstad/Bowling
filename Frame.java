@@ -38,47 +38,47 @@ public class Frame
 			throw2=randomizer(10-throw1);
 			bonus1=bonus2=0;
 		}
-	}
+	}//end constructor
 
 	private int randomizer(int n)
 	{
 		return (int)(Math.random()*(n+1));
-	}
+	}//end randomizer
 
 	public void setNext(Frame f)
 	{
 		next=f;
-	}
+	}//end setNext
 
 	public int getThrow1()
 	{
 		return throw1;
-	}
+	}//end getThrow1
 
 	public int getThrow2()
 	{
 		return throw2;
-	}
+	}//end getThrow2
 
 	public int getBonus1()
         {
                 return bonus1;
-        }
+        }//end getBonus1
 
         public int getBonus2()
         {
                 return bonus2;
-        }
+        }//end getBonus2
 
 	public Frame getNext()
 	{
 		return next;
-	}
+	}//end getNext
 
 	public boolean isLast()
 	{
 		return lastFrame;
-	}
+	}//end isLast
 
 	public String toString()
 	{
@@ -96,13 +96,11 @@ public class Frame
 			else
 				return throw1 + " " + throw2;
 		else
-		{
 			if(throw1==10)
 				return "X";
 			else if((throw1+throw2)==10)
 				return throw1 + " /";
 			else
 				return throw1 + " " + throw2;
-		}
-	}
-}
+	}//end toString
+}//end class

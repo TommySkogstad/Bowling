@@ -1,6 +1,6 @@
 public class Game
 {
-	public Frame[] bowling = new Frame[10];
+	private Frame[] bowling = new Frame[10];
 
 	public Game()
 	{
@@ -9,7 +9,7 @@ public class Game
 		bowling[9] = new Frame(true);
 		for(int i=1;i<bowling.length;i++)
 			bowling[i-1].setNext(bowling[i]);
-	}
+	}//end constructor
 
 	private int frameScore(Frame f)
 	{
@@ -30,7 +30,7 @@ public class Game
 				return 10+f.getNext().getThrow1();
 		else
 			 return f.getThrow1()+f.getThrow2();
-	}
+	}//end frameScore
 
 	public int gameScore()
 	{
@@ -38,7 +38,7 @@ public class Game
 		for(Frame f:bowling)
 			points+=frameScore(f);
 		return points;
-	}
+	}//end gameScore
 
 	public String toString()
 	{
@@ -46,5 +46,5 @@ public class Game
 		for(Frame f:bowling)
 			builder.append(f + " | ");
 		return builder.toString();
-	}
-}
+	}//end toString
+}//end class
