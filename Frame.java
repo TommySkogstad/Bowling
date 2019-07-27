@@ -55,6 +55,51 @@ public class Frame
 	}//end constructor
 
 	/**
+	 * Constructor only for testing,
+	 * do not take in account illegal throws, as 6pins+6pins.
+	 * Will be used with following values: n=10, n=5, n=3.
+	 * @param n number of pins each throw
+	 * @last Boolean value if set to true if its last frame
+	 */
+	public Frame(int n,boolean last)
+	{
+		lastFrame = last;
+                if(lastFrame)
+                {
+                        throw1=n;
+                        if(throw1==10)
+                        {
+                                bonus1=n;
+                                bonus2=n;
+                                throw2=0;
+                        }
+                        else
+                        {
+                                throw2=n;
+                                if((throw1+throw2)==10)
+                                        bonus1=n;
+                                else
+                                        bonus1=0;
+                                bonus2=0;
+                        }
+                }
+                else
+                {
+                        throw1=n;
+                        throw2=n;
+                        bonus1=bonus2=0;
+                }
+	}//end constructor
+
+	/**
+         * Constructor with set score without boolean param, set boolean to false as default.
+         */
+	public Frame(int n)
+	{
+		this(n,false);
+	}//end constructor
+
+	/**
 	 * Randomizes the throw.
 	 * @param n Maximum value for the randomizer to reach
 	 * @return Value between 0 and n

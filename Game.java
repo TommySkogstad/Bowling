@@ -16,6 +16,19 @@ public class Game
 	}//end constructor
 
 	/**
+	 * Used for testing, with set score.
+	 * @param n Pins scored each throw
+	 */
+	public Game(int n)
+	{
+		for(int i=0;i<bowling.length-1;i++)
+                        bowling[i] = new Frame(n);
+                bowling[9] = new Frame(n,true);
+                for(int i=1;i<bowling.length;i++)
+                        bowling[i-1].setNext(bowling[i]);
+	}
+
+	/**
 	 * Calculates score for a single frame, check for last frame
 	 * @param f Frame to calculate score for
 	 * @return Score for a single frame
