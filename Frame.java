@@ -167,7 +167,7 @@ public class Frame
 	}//end isLast
 
 	/**
-	 * @return Throws counted this frame
+	 * @return Throws this frame
 	 */
 	public String toString()
 	{

@@ -1,9 +1,14 @@
+Written and tested in Java 11.0.3
+
+JUnit tests written from examples from:
 https://www.tutorialspoint.com/junit/junit_basic_usage.htm
 https://github.com/junit-team/junit4/wiki/Getting-started
 
+Compile JUnit tests:
 javac -cp .:./junit-4.12.jar:./hamcrest-core-1.3.jar BowlingTest.java 
 javac -cp .:./junit-4.12.jar:./hamcrest-core-1.3.jar TestRunner.java
 
+Run JUnit tests:
 java -cp .:./junit-4.12.jar:./hamcrest-core-1.3.jar TestRunner 
  
 
