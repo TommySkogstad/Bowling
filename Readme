@@ -1,5 +1,13 @@
 Written and tested in Java 11.0.3
 
+Frame contains only throws in a single frame.
+
+Game contains 10 frames, and methods to calculate score
+
+Bowling contains the main method, only creating a Game and printing the result
+
+BowlingTest and TestRunner are used to confirm that the scoring method give the right score
+
 JUnit tests written from examples from:
 https://www.tutorialspoint.com/junit/junit_basic_usage.htm
 https://github.com/junit-team/junit4/wiki/Getting-started
